@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="styles.css" />
-    <script src="./scripts.js"></script>
+    <script defer src="./scripts.js"></script>
 
     <title>Shortener</title>
   </head>
+
   <body>
+    <h1>URL</h1>
     <form>
-      <input type="text" />
-      <button type="button">Submit</button>
+      <input autocomplete="off" id="url" type="text" />
+      <button id="btn" onclick="sendRequest()" type="button">Submit</button>
     </form>
   </body>
 </html>
