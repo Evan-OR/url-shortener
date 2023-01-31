@@ -1,4 +1,5 @@
 const randomId = require('./random');
+require('dotenv').config();
 const express = require('express');
 const fs = require('node:fs');
 const mysql = require('mysql2');
@@ -24,11 +25,13 @@ app.use(function (req, res, next) {
   next();
 });
 
+const { HOST, USER, PASSWORD, DATABASE } = process.env;
+
 const connection = mysql.createConnection({
-  host: 'task-manager-db.mysql.database.azure.com',
-  user: 'evan',
-  password: 'Celtsql01$',
-  database: 'urls',
+  host: HOST,
+  user: USER,
+  password: PASSWORD,
+  database: DATABASE,
   port: 3306,
   ssl: { ca: fs.readFileSync('./DigiCertGlobalRootCA.crt.pem') },
 });
@@ -42,6 +45,9 @@ app.post('/create/:url', (req, res) => {
   const { url } = req.params;
   const sql = `insert into urls_info (original, shortend) values (?, ?)`;
   const code = randomId();
+
+  //Check if code already Exists
+  //Check if url already Exists
 
   connection.execute(sql, [url, code], (err) => {
     if (err) {
