@@ -1,5 +1,6 @@
 :root {
   --dark: rgb(44 44 44);
+  /* --primary: rgb(35, 186, 224); */
 }
 * {
   box-sizing: border-box;
@@ -21,13 +22,18 @@ body {
 }
 .shortenIcon {
   position: absolute;
-  width: 25px;
+  height: 100%;
+  aspect-ratio: 1/1;
+  padding: 5px;
+
   fill: var(--dark);
+
+  cursor: pointer;
 
   /* Position */
   top: 50%;
   transform: translateY(-50%);
-  right: 4px;
+  right: 0;
 }
 
 .searchBarWrapper {
@@ -37,6 +43,5 @@ body {
 input[type='text'] {
   width: 280px;
   padding: 8px 6px;
-  margin: 8px 0;
   box-sizing: border-box;
 }
