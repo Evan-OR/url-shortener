@@ -1,4 +1,6 @@
-const sendRequest = async () => {
+const sendRequest = async (e) => {
+  if (e) e.preventDefault();
+
   const url = document.getElementById('url');
   const btn = document.getElementById('btn');
   btn.disabled = true;
