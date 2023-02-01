@@ -1,4 +1,4 @@
-const randomId = require('./modules/randomCode');
+const { checkIfLinkExists } = require('./modules/creatingLink');
 require('dotenv').config();
 const express = require('express');
 const fs = require('node:fs');
@@ -41,24 +41,28 @@ connection.connect((err) => {
   }
 });
 
-app.post('/create/:url', (req, res) => {
+app.post('/create/:url', async (req, res) => {
   const { url } = req.params;
-  const sql = `insert into urls_info (original, shortend) values (?, ?)`;
-  const code = randomId();
+  const sql = `insert into urls_info (original_url) values (?)`;
 
-  //Check if code already Exists
-  //Check if url already Exists
-
-  connection.execute(sql, [url, code], (err) => {
-    if (err) {
-      res.status(500).send({
-        message: 'could not update database',
+  checkIfLinkExists(connection, url, (err, record) => {
+    if (!record) {
+      connection.execute(sql, [url], (err) => {
+        if (err) {
+          res.status(500).send({
+            message: 'could not update database',
+          });
+        }
+        res.status(200).send({
+          message: 'shortened url added',
+        });
+      });
+    } else {
+      res.status(200).send({
+        message: 'record already exists',
+        info: record,
       });
     }
-    res.status(200).send({
-      message: 'shortened url added',
-      code: code,
-    });
   });
 });
 

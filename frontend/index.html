@@ -12,10 +12,14 @@
   </head>
 
   <body>
-    <h1>URL</h1>
-    <form>
-      <input autocomplete="off" id="url" type="text" />
-      <button id="btn" onclick="sendRequest()" type="button">Submit</button>
-    </form>
+    <div class="main">
+      <h1>URL Shortener</h1>
+      <form>
+        <div class="searchBarWrapper">
+          <input placeholder="Paste Full URL Here" autocomplete="off" id="url" type="text" />
+        </div>
+        <button id="btn" onclick="sendRequest()" type="button">Submit</button>
+      </form>
+    </div>
   </body>
 </html>

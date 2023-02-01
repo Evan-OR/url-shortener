@@ -16,3 +16,13 @@ const sendRequest = async () => {
   btn.disabled = false;
   console.log(res);
 };
+
+const isValidHttpUrl = (string) => {
+  let url;
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+  return url.protocol === 'http:' || url.protocol === 'https:';
+};
