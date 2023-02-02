@@ -1,4 +1,7 @@
+const errText = document.getElementById('err');
+
 const sendRequest = async (e) => {
+  console.log('being called!');
   e.preventDefault();
   e.stopPropagation();
 
@@ -8,8 +11,16 @@ const sendRequest = async (e) => {
 
   if (!url.value) {
     alert('please enter a url');
+    console.log('empty');
     return;
   }
+  if (!isValidHttpUrl(url.value)) {
+    errText.style.display = 'block';
+    console.log('`not valid`');
+    return;
+  }
+  console.log('valid');
+  errText.style.display = 'none';
 
   const req = await fetch(`http://localhost:8080/create/${url.value}`, {
     method: 'post',
