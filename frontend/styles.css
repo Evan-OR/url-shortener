@@ -26,6 +26,9 @@ body {
   aspect-ratio: 1/1;
   padding: 5px;
 
+  background: none;
+  border: none;
+
   fill: var(--dark);
 
   cursor: pointer;

@@ -1,5 +1,6 @@
 const sendRequest = async (e) => {
-  if (e) e.preventDefault();
+  e.preventDefault();
+  e.stopPropagation();
 
   const url = document.getElementById('url');
   const btn = document.getElementById('btn');
@@ -28,3 +29,5 @@ const isValidHttpUrl = (string) => {
   }
   return url.protocol === 'http:' || url.protocol === 'https:';
 };
+
+document.getElementById('btn').addEventListener('click', sendRequest, false);
