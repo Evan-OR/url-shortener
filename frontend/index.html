@@ -13,7 +13,7 @@
 
   <body>
     <div class="main">
-      <h1>URL Shortener</h1>
+      <h1 class="pageTitle">URL Shortener</h1>
       <form onsubmit="sendRequest()">
         <div class="searchBarWrapper">
           <input placeholder="Paste Full URL Here" autocomplete="off" id="url" type="text" />
@@ -25,7 +25,7 @@
             </svg>
           </button>
         </div>
-        <div id="err">Please paste the full URL. (Include https://)</div>
+        <div id="err">Please paste the <i>Full URL</i>. (Include https://)</div>
       </form>
     </div>
   </body>

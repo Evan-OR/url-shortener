@@ -12,18 +12,24 @@ const sendRequest = async (e) => {
   if (!url.value) {
     alert('please enter a url');
     console.log('empty');
+    btn.disabled = false;
     return;
   }
   if (!isValidHttpUrl(url.value)) {
     errText.style.display = 'block';
     console.log('`not valid`');
+    btn.disabled = false;
     return;
   }
+
   console.log('valid');
   errText.style.display = 'none';
 
   const req = await fetch(`http://localhost:8080/create/${url.value}`, {
     method: 'post',
+    body: {
+      url: '',
+    },
   });
   const res = await req.json();
 

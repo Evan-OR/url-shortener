@@ -14,6 +14,10 @@ body {
   justify-content: center;
 }
 
+.pageTitle {
+  font-size: 3rem;
+}
+
 .main {
   width: 100%;
   display: flex;
@@ -27,7 +31,7 @@ form {
 }
 .shortenIcon {
   position: absolute;
-  height: 100%;
+  height: 80%;
   aspect-ratio: 1/1;
   padding: 5px;
 
@@ -50,8 +54,9 @@ form {
 
 input[type='text'] {
   width: 280px;
-  padding: 8px 6px;
+  padding: 10px 14px;
   box-sizing: border-box;
+  font-size: 1.3rem;
 }
 
 #err {
