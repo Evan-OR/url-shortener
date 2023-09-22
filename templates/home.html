@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="{{ url_for('static',filename='styles/home.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='styles/home.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='styles/styles.css') }}"
+    />
 
-        <title>Lil Link</title>
-    </head>
-    <body>
-        <h1>Lil Link</h1>
-        <h3>Shorten your URL's</h3>
+    <title>Lil Link</title>
+  </head>
+  <body>
+    <h1>Lil Link</h1>
+    <h3>Shorten your URL's</h3>
 
-        <form id="searchForm">
-            <input id="search" name="url" type="text" placeholder="www.YourLongURL.com" />
-        </form>
-    </body>
+    <form id="searchForm">
+      <input
+        id="search"
+        name="url"
+        type="text"
+        placeholder="www.YourLongURL.com"
+      />
+    </form>
+  </body>
 
-    <script defer src="{{ url_for('static',filename='js/formHandler.js')}}"></script>
+  <script
+    defer
+    src="{{ url_for('static',filename='js/formHandler.js')}}"
+  ></script>
 </html>
