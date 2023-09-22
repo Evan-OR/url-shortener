@@ -11,6 +11,12 @@ connection = create_db_connection()
 def hello_world():
     return  render_template('home.html')
 
+@app.route("/<link>")
+def display_link(link):
+    res = get_original_from_shortened(connection, link)
+
+    return  render_template('url.html', original_url=res)
+
 @app.route("/create-link", methods=['POST'])
 def create_link():  
 
@@ -26,12 +32,6 @@ def create_link():
     
     except Exception as e:
         return jsonify({"message": "error creating link", "error": str(e)}), 500
-
-@app.route("/<link>")
-def display_link(link):
-    res = get_original_from_shortened(connection, link)
-
-    return  render_template('url.html', original_url=res, shortened_url=link)
 
 
 if __name__ == '__main__':

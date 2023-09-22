@@ -39,12 +39,16 @@ def get_shorted_from_original(con:mysql.connector.MySQLConnection, url:str):
 
 def get_original_from_shortened(con:mysql.connector.MySQLConnection, url:str):
     cursor = con.cursor()
-    cursor.execute("Select original_url from urls_info where shortened_url = %s", [url])
-    result:dict = cursor.fetchall()
+    cursor.execute("SELECT original_url FROM urls_info WHERE shortened_url = %s", [url])
+    result = cursor.fetchone()
 
-    # Close the cursor and the connection
     cursor.close()
-    return result
+    if result:
+        # If a matching record is found, return the original URL
+        return result[0]
+    else:
+        # If no matching record was found, return None or raise an exception, as needed
+        return None
 
 def shorten_url(con:mysql.connector.MySQLConnection, url:str) -> Union[None, dict]:
     # Check if valid url
