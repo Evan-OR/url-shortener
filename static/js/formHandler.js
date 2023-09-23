@@ -1,30 +1,32 @@
-const form = document.getElementById('searchForm');
-const searchBar = document.getElementById('search');
+const form = document.getElementById("searchForm");
+const searchBar = document.getElementById("search");
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // client side validation
     url = searchBar.value;
 
     if (!hasHTTP(url)) {
-        alert('URL must start with https:// or http://');
+        alert("URL must start with https:// or http://");
     }
     if (!isValidURL(url)) {
-        console.error('Invlid URL');
+        console.error("Invlid URL");
         return;
     }
 
     const options = {
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({ url: url }),
     };
 
     const req = await fetch(`/create-link`, options);
     const res = await req.json();
+
+    document.getElementById("res").innerText = JSON.stringify(res);
 });
 
 const isValidURL = (s) => {
@@ -40,7 +42,7 @@ const isValidURL = (s) => {
 };
 
 const hasHTTP = (s) => {
-    if (s.indexOf('http://') === -1 && s.indexOf('https://') === -1) {
+    if (s.indexOf("http://") === -1 && s.indexOf("https://") === -1) {
         return false;
     }
 
