@@ -48,7 +48,7 @@ def get_original_from_shortened(con:mysql.connector.MySQLConnection, url:str):
         return result[0]
     else:
         # If no matching record was found, return None or raise an exception, as needed
-        return None
+        raise ValueError('Shortened URL Not Found')
 
 def shorten_url(con:mysql.connector.MySQLConnection, url:str) -> Union[None, dict]:
     # Check if valid url
