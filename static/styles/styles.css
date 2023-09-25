@@ -1,6 +1,10 @@
 :root {
   --primary: #ffa6a6;
   --primary-dark: #ff9191;
+
+  --grey-font: #353535;
+
+  --max-width: 1000px;
 }
 
 * {

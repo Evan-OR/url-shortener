@@ -19,52 +19,31 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <style>
+      @font-face {
+        font-family: "YourCustomFont";
+        src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}")
+          format("truetype");
+      }
+      .cool-font {
+        font-family: "Sunny Spells", sans-serif;
+        font-weight: 100;
+      }
+    </style>
+    <!-- Icons -->
 
     <title>Lil Link</title>
   </head>
   <body>
     <div class="hero-background">
       <div class="hero-title">
-        <img
-          class="hero-image"
-          src="{{ url_for('static', filename='images/LIL LINK.svg') }}"
-        />
+        <h1 class="title cool-font">Lil Link</h1>
         <h3>Shorten your URL's</h3>
       </div>
-      <svg
+      <img
         class="bg"
-        xmlns="http://www.w3.org/2000/svg"
-        version="1.1"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        xmlns:svgjs="http://svgjs.dev/svgjs"
-        width="1440"
-        height="560"
-        preserveAspectRatio="none"
-        viewBox="0 0 1440 560"
-      >
-        <g mask='url("#SvgjsMask1104")' fill="none">
-          <rect
-            width="1440"
-            height="560"
-            x="0"
-            y="0"
-            fill="rgba(255, 166, 166, 1)"
-          ></rect>
-          <path
-            d="M0,381.614C69.975,369.377,102.51,289.578,156.227,243.094C200.727,204.586,258.767,182.517,288.655,131.824C320.278,78.188,336.644,14.5,327.294,-47.058C317.978,-108.393,284.084,-164.855,237.389,-205.699C193.789,-243.835,134.038,-251.041,77.876,-265.222C23.921,-278.846,-29.165,-294.846,-84.246,-286.914C-145.146,-278.144,-208.878,-262.313,-251.367,-217.811C-294.566,-172.565,-308.966,-107.553,-314.946,-45.282C-320.732,14.971,-304.285,72.753,-284.774,130.052C-263.283,193.166,-245.757,260.511,-195.788,304.652C-142.147,352.037,-70.503,393.943,0,381.614"
-            fill="#ff9191"
-          ></path>
-          <path
-            d="M1440 1004.049C1522.413 999.725 1594.75 953.028 1660.712 903.434 1722.946 856.644 1782.435 801.539 1807.429 727.799 1831.363 657.188 1808.291 582.296 1794.391 509.046 1781.1019999999999 439.01800000000003 1766.829 370.176 1728.199 310.274 1685.177 243.563 1634.477 177.798 1561.155 147.38299999999998 1484.24 115.47699999999998 1397.14 118.62299999999999 1316.532 139.50799999999998 1234.225 160.83300000000003 1138.887 190.252 1101.31 266.523 1063.588 343.089 1129.5059999999999 430.27 1131.2359999999999 515.606 1132.588 582.302 1098.72 644.869 1110.31 710.564 1124.27 789.691 1143.871 873.977 1203.886 927.4010000000001 1266.97 983.558 1355.658 1008.4739999999999 1440 1004.049"
-            fill="#ffbbbb"
-          ></path>
-        </g>
-        <defs>
-          <mask id="SvgjsMask1104">
-            <rect width="1440" height="560" fill="#ffffff"></rect>
-          </mask>
-        </defs>
-      </svg>
+        src="{{ url_for('static', filename='images/Hero.svg') }}"
+      />
     </div>
 
     <form id="searchForm">
@@ -77,12 +56,35 @@
           autocomplete="off"
         />
         <button class="searchBtn" type="submit">
-          <img
-            src="{{ url_for('static', filename='images/SHORTEN URL.svg') }}"
-          />
+          <div class="cool-font">Shorten Url</div>
         </button>
       </div>
     </form>
+
+    <div class="info-section">
+      <!-- Info 1 -->
+      <div class="info-wrapper">
+        <div class="info-title cool-font">
+          Shorten Your Links, Share with Ease
+        </div>
+        <div class="info-body">
+          Our link shortening service simplifies the way you share web links.
+          Say goodbye to long, cumbersome URLs and hello to concise,
+          easy-to-share links.
+        </div>
+      </div>
+      <!-- Info 2 -->
+      <div class="info-wrapper">
+        <div class="info-title cool-font">
+          Generate QR Codes for Quick Access
+        </div>
+        <div class="info-body">
+          Unlock the power of QR codes with our user-friendly generator. Easily
+          convert your URLs into scannable QR codes, perfect for adding to
+          posters, business cards, and digital displays.
+        </div>
+      </div>
+    </div>
     <div id="res"></div>
   </body>
 
