@@ -9,7 +9,10 @@ from typing import Optional, Union
 # TODO REWRITE THIS INTO AN OBJECT
 
 def create_db_connection() -> Optional[mysql.connector.MySQLConnection]:
-    load_dotenv()
+    env_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+
+    # Load the .env file
+    load_dotenv(env_path)
 
     host = os.getenv('HOST')
     user = os.getenv('USER')

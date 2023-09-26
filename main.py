@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database_connection import create_db_connection, shorten_url, get_original_from_shortened
+from utils.database_connection import create_db_connection, shorten_url, get_original_from_shortened
 
 # Flask Init
 app = Flask(__name__)
