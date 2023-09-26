@@ -24,6 +24,12 @@ form.addEventListener("submit", async (e) => {
     };
 
     const req = await fetch(`/create-link`, options);
+
+    if (!req.ok) {
+        alert("Error Creating Link");
+        return;
+    }
+
     const res = await req.json();
 
     document.getElementById("res").innerText = JSON.stringify(res);
