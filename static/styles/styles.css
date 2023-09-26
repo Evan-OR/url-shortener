@@ -2,7 +2,7 @@
   --primary: #ffa6a6;
   --primary-dark: #ff9191;
 
-  --grey-font: #353535;
+  --grey-font: #535353;
 
   --max-width: 1000px;
 }
@@ -23,4 +23,20 @@ body {
 
   width: 100%;
   height: 100vh;
+}
+
+.btn-primary {
+  display: block;
+  background-color: var(--primary);
+
+  color: white;
+  font-size: 1.4rem;
+  text-decoration: none;
+
+  padding: 5px 8px;
+  margin: 5px;
+  border-radius: 3px;
+}
+.btn-primary:hover {
+  cursor: pointer;
 }
