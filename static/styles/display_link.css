@@ -1,0 +1,23 @@
+.short-link-display-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 14px;
+  margin: 40px;
+
+  border: 2px var(--primary) dashed;
+  border-radius: 4px;
+}
+
+.short-link {
+  color: var(--grey-font);
+  font-size: 1.6rem;
+}
+.copy-icon {
+  width: 30px;
+  margin-left: 20px;
+  color: var(--primary);
+}
+.copy-icon:hover {
+  cursor: pointer;
+}

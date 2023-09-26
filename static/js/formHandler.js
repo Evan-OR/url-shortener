@@ -27,6 +27,7 @@ form.addEventListener("submit", async (e) => {
     const res = await req.json();
 
     document.getElementById("res").innerText = JSON.stringify(res);
+    window.location.replace(res.shortened);
 });
 
 const isValidURL = (s) => {

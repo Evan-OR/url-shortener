@@ -6,6 +6,7 @@ import string
 from dotenv import load_dotenv
 from typing import Optional, Union
 
+# TODO REWRITE THIS INTO AN OBJECT
 
 def create_db_connection() -> Optional[mysql.connector.MySQLConnection]:
     load_dotenv()
@@ -37,15 +38,15 @@ def get_shorted_from_original(con:mysql.connector.MySQLConnection, url:str):
 
     return result[0][0]
 
-def get_original_from_shortened(con:mysql.connector.MySQLConnection, url:str):
-    cursor = con.cursor()
-    cursor.execute("SELECT original_url FROM urls_info WHERE shortened_url = %s", [url])
+def get_original_from_shortened(con:mysql.connector.MySQLConnection, url:str) -> dict:
+    cursor = con.cursor(dictionary=True)
+    cursor.execute("SELECT original_url, shortened_url FROM urls_info WHERE shortened_url = %s", [url])
     result = cursor.fetchone()
 
     cursor.close()
     if result:
         # If a matching record is found, return the original URL
-        return result[0]
+        return result
     else:
         # If no matching record was found, return None or raise an exception, as needed
         raise ValueError('Shortened URL Not Found')
@@ -57,6 +58,7 @@ def shorten_url(con:mysql.connector.MySQLConnection, url:str) -> Union[None, dic
 
     # Return Link That Already Exists 
     exists, shortened_link = check_if_url_already_exists(con, url)
+
     if exists:
         return {
             "status": 200,
