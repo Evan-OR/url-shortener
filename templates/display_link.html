@@ -27,7 +27,7 @@
     />
     <style>
       @font-face {
-        font-family: "YourCustomFont";
+        font-family: "Sunny Spells";
         src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}")
           format("truetype");
       }
@@ -60,6 +60,12 @@
         src="{{ url_for('static', filename='images/copy_icon.svg') }}"
       />
     </div>
+
+    <img
+      style="image-rendering: pixelated; width: 10%"
+      src="http://127.0.0.1:5000/get_qrimg"
+      alt="QR Code"
+    />
 
     <div>Long URL: {{ original_url }}</div>
     <a href="/" class="btn-primary cool-font">
