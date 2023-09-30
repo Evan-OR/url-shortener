@@ -64,20 +64,27 @@
     <div class="info-section">
       <!-- Info 1 -->
       <div class="info-wrapper">
-        <div class="info-title cool-font">
-          Shorten Your Links, Share with Ease
-        </div>
+        <img
+          class="info-icon"
+          title="Copy To Clipboard"
+          src="{{ url_for('static', filename='images/little_icon.svg') }}"
+        />
+        <div class="info-title cool-font">Shorten Your Links</div>
         <div class="info-body">
           Our link shortening service simplifies the way you share web links.
           Say goodbye to long, cumbersome URLs and hello to concise,
           easy-to-share links.
         </div>
       </div>
+
       <!-- Info 2 -->
       <div class="info-wrapper">
-        <div class="info-title cool-font">
-          Generate QR Codes for Quick Access
-        </div>
+        <img
+          class="info-icon"
+          title="Copy To Clipboard"
+          src="{{ url_for('static', filename='images/qr_icon.svg') }}"
+        />
+        <div class="info-title cool-font">Generate QR Codes</div>
         <div class="info-body">
           Unlock the power of QR codes with our user-friendly generator. Easily
           convert your URLs into scannable QR codes, perfect for adding to
