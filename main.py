@@ -1,4 +1,3 @@
-import base64
 from flask import Flask, render_template, jsonify, request
 from utils.DatabaseController import DatabaseController
 from utils.qr_code_generation import generate_encoded_qr
