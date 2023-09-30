@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   padding: 8px 14px;
-  margin: 40px;
+  margin-top: 40px;
 
   border: 2px var(--primary) dashed;
   border-radius: 4px;
@@ -20,4 +20,30 @@
 }
 .copy-icon:hover {
   cursor: pointer;
+}
+
+.original-url {
+  margin: 5px 0;
+}
+
+.qr-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 15px 15px 15px 15px;
+  width: 300px;
+}
+.qr {
+  image-rendering: pixelated;
+  width: 100%;
+}
+.qr-text {
+  margin-top: 5px;
+  color: white;
+  font-size: 4rem;
+}
+
+.btn-margin {
+  margin: 15px;
 }

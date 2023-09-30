@@ -1,11 +1,11 @@
 from flask import Flask, render_template, jsonify, request
-from utils.database_connection import create_db_connection, shorten_url, get_original_from_shortened
+from utils.DatabaseController import DatabaseController
+from utils.qr_code_generation import generate_encoded_qr
 
 # Flask Init
 app = Flask(__name__)
-# DataBase Connection
-connection = create_db_connection()
-
+# DataBase Controller
+dc = DatabaseController()
 
 @app.route("/")
 def hello_world():
@@ -14,7 +14,7 @@ def hello_world():
 @app.route("/<link>")
 def redirect(link):
     try:
-        res = get_original_from_shortened(connection, link)
+        res = dc.get_original_from_shortened(link)
         return  render_template('url.html', original_url=res.get('original_url'))
     except:
         return  render_template('404.html'), 404
@@ -24,7 +24,8 @@ def create_link():
     try:
         data = request.get_json()
         url = data.get('url')
-        res = shorten_url(connection, url)
+        res = dc.shorten_url(url)
+        
         # Get root URL
         server_url = request.url_root
         res["shortened"] = f"{server_url}/display/{res['shortened']}"
@@ -35,23 +36,24 @@ def create_link():
         return jsonify({"message": "Invalid URL", "error": str(e)}), 400
     
     except Exception as e:
-        print(e)
         return jsonify({"message": "error creating link", "error": str(e)}), 500
     
-@app.route("/display/<link>")
-def display_link(link):
-    # Check if link is in database
+@app.route("/display/<code>")
+def display_link(code):
     try:
-        res = get_original_from_shortened(connection, link)
+        res = dc.get_original_from_shortened(code)
 
         original_url = res.get('original_url')
         shortened_url = res.get('shortened_url')
 
         full_shortened_url = request.url_root + shortened_url
 
-        return render_template('display_link.html', original_url=original_url, shortened_url=full_shortened_url), 200
+        encoded_image = generate_encoded_qr(original_url)
+
+        return render_template('display_link.html', original_url=original_url, shortened_url=full_shortened_url, encoded_image=encoded_image), 200
  
-    except:
+    except Exception as e:
+        print(e)
         return render_template('404.html'), 404
 
 @app.errorhandler(404)

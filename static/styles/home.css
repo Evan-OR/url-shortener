@@ -83,6 +83,7 @@ input[type="text"]:focus {
 .info-section {
   display: flex;
   max-width: var(--max-width);
+  margin: 40px;
 }
 
 .info-wrapper {
@@ -90,17 +91,23 @@ input[type="text"]:focus {
   padding: 0 10px 20px 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
+.info-icon {
+  height: 90px;
+  fill: #ffa6a6;
+  color: #ffa6a6;
+}
 .info-title {
   color: var(--primary);
-  font-size: 2.3rem;
+  font-size: 2.8rem;
   text-align: center;
 
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .info-body {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: center;
   color: var(--grey-font);
 }

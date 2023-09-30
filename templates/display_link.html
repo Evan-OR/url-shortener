@@ -27,7 +27,7 @@
     />
     <style>
       @font-face {
-        font-family: "YourCustomFont";
+        font-family: "Sunny Spells";
         src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}")
           format("truetype");
       }
@@ -43,7 +43,7 @@
     <div class="hero-background">
       <div class="hero-title">
         <h1 class="title cool-font">Lil Link</h1>
-        <h3>Here's Your Link</h3>
+        <h3>Here's Your Shortened LINK</h3>
       </div>
       <img
         class="bg"
@@ -51,7 +51,7 @@
       />
     </div>
 
-    <div class="short-link-display-wrapper">
+    <div id="short-link-wrapper" class="short-link-display-wrapper">
       <div id="link" class="short-link cool-font">{{ shortened_url }}</div>
       <img
         id="copyBtn"
@@ -61,8 +61,18 @@
       />
     </div>
 
-    <div>Long URL: {{ original_url }}</div>
-    <a href="/" class="btn-primary cool-font">
+    <div class="original-url">Original URL: {{ original_url }}</div>
+
+    <div id="qr-wrapper" class="qr-wrapper">
+      <img
+        id="qr"
+        class="qr"
+        src="data:image/png;base64,{{ encoded_image }}"
+        alt="QR Code"
+      />
+    </div>
+
+    <a href="/" class="btn-primary cool-font btn-margin">
       <div>Back Home</div>
     </a>
   </body>
