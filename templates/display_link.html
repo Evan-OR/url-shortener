@@ -5,31 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- CSS -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles/home.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles/styles.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles/display_link.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/home.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/display_link.css') }}" />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <style>
       @font-face {
         font-family: "Sunny Spells";
-        src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}")
-          format("truetype");
+        src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}") format("truetype");
       }
       .cool-font {
         font-family: "Sunny Spells", sans-serif;
@@ -45,20 +32,12 @@
         <h1 class="title cool-font">Lil Link</h1>
         <h3>Here's Your Shortened LINK</h3>
       </div>
-      <img
-        class="bg"
-        src="{{ url_for('static', filename='images/Hero.svg') }}"
-      />
+      <img class="bg" src="{{ url_for('static', filename='images/Hero.svg') }}" />
     </div>
 
     <div id="short-link-wrapper" class="short-link-display-wrapper">
       <div id="link" class="short-link cool-font">{{ shortened_url }}</div>
-      <img
-        id="copyBtn"
-        title="Copy To Clipboard"
-        class="copy-icon"
-        src="{{ url_for('static', filename='images/copy_icon.svg') }}"
-      />
+      <img id="copyBtn" title="Copy To Clipboard" class="copy-icon" src="{{ url_for('static', filename='images/copy_icon.svg') }}" />
       <dialog id="modal">
         <div id="pop-up-text" class="pop-up-wrapper">Copied to Clipboard!</div>
       </dialog>
@@ -67,12 +46,7 @@
     <div class="original-url">Original URL: {{ original_url }}</div>
 
     <div id="qr-wrapper" class="qr-wrapper">
-      <img
-        id="qr"
-        class="qr"
-        src="data:image/png;base64,{{ encoded_image }}"
-        alt="QR Code"
-      />
+      <img id="qr" class="qr" src="data:image/png;base64,{{ encoded_image }}" alt="QR Code" />
     </div>
 
     <a href="/" class="btn-primary cool-font btn-margin">
@@ -80,8 +54,5 @@
     </a>
   </body>
 
-  <script
-    defer
-    src="{{ url_for('static',filename='js/copyToClipboard.js')}}"
-  ></script>
+  <script defer src="{{ url_for('static',filename='js/copyToClipboard.js')}}"></script>
 </html>

@@ -4,20 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles/home.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles/styles.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/home.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" />
 
     <style>
       @font-face {
         font-family: "Sunny Spells";
-        src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}")
-          format("truetype");
+        src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}") format("truetype");
         font-display: swap;
       }
       .cool-font {
@@ -34,12 +27,7 @@
         <div class="dialog-highlight"></div>
         <div class="modal-content">
           <div class="modal-title-wrapper">
-            <img
-              class="modal-icon"
-              draggable="false"
-              alt="Error"
-              src="{{ url_for('static', filename='images/error.svg') }}"
-            />
+            <img class="modal-icon" draggable="false" alt="Error" src="{{ url_for('static', filename='images/error.svg') }}" />
             <div id="modal-title">Action Failed</div>
           </div>
           <div id="modal-body">URL needs to have http:// or https://</div>
@@ -53,23 +41,12 @@
         <h1 class="title cool-font">Lil Link</h1>
         <h3>Shorten your URL's</h3>
       </div>
-      <img
-        draggable="false"
-        alt="Hero Background"
-        class="bg"
-        src="{{ url_for('static', filename='images/Hero.svg') }}"
-      />
+      <img draggable="false" alt="Hero Background" class="bg" src="{{ url_for('static', filename='images/Hero.svg') }}" />
     </div>
 
     <form id="searchForm">
       <div class="searchInputWrapper">
-        <input
-          id="search"
-          name="url"
-          type="text"
-          placeholder="www.YourLongURL.com"
-          autocomplete="off"
-        />
+        <input id="search" name="url" type="text" placeholder="www.YourLongURL.com" autocomplete="off" />
         <button class="searchBtn" type="submit">
           <div class="cool-font">Shorten Url</div>
         </button>
@@ -79,43 +56,22 @@
     <div class="info-section">
       <!-- Info 1 -->
       <div class="info-wrapper">
-        <img
-          draggable="false"
-          class="info-icon"
-          title="Copy To Clipboard"
-          alt="Shorten Icon"
-          src="{{ url_for('static', filename='images/little_icon.svg') }}"
-        />
+        <img draggable="false" class="info-icon" title="Copy To Clipboard" alt="Shorten Icon" src="{{ url_for('static', filename='images/little_icon.svg') }}" />
         <div class="info-title cool-font">Shorten Your Links</div>
-        <div class="info-body">
-          Our link shortening service simplifies the way you share web links.
-          Say goodbye to long, cumbersome URLs and hello to concise,
-          easy-to-share links.
-        </div>
+        <div class="info-body">Our link shortening service simplifies the way you share web links. Say goodbye to long, cumbersome URLs and hello to concise, easy-to-share links.</div>
       </div>
 
       <!-- Info 2 -->
       <div class="info-wrapper">
-        <img
-          draggable="false"
-          class="info-icon"
-          title="Copy To Clipboard"
-          alt="QR Code Icon"
-          src="{{ url_for('static', filename='images/qr_icon.svg') }}"
-        />
+        <img draggable="false" class="info-icon" title="Copy To Clipboard" alt="QR Code Icon" src="{{ url_for('static', filename='images/qr_icon.svg') }}" />
         <div class="info-title cool-font">Generate QR Codes</div>
         <div class="info-body">
-          Unlock the power of QR codes with our user-friendly generator. Easily
-          convert your URLs into scannable QR codes, perfect for adding to
-          posters, business cards, and digital displays.
+          Unlock the power of QR codes with our user-friendly generator. Easily convert your URLs into scannable QR codes, perfect for adding to posters, business cards, and digital displays.
         </div>
       </div>
     </div>
     <div id="res"></div>
   </body>
 
-  <script
-    defer
-    src="{{ url_for('static',filename='js/formHandler.js')}}"
-  ></script>
+  <script defer src="{{ url_for('static',filename='js/formHandler.js')}}"></script>
 </html>
