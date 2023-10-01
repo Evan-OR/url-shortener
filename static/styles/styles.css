@@ -27,6 +27,9 @@ body {
 
 .btn-primary {
   display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--primary);
 
   color: white;
@@ -36,7 +39,83 @@ body {
   padding: 5px 8px;
   margin: 5px;
   border-radius: 3px;
+
+  user-select: none;
 }
 .btn-primary:hover {
   cursor: pointer;
+  background-color: var(--primary-dark);
+}
+
+dialog {
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0);
+
+  border: none;
+  border-radius: 4px;
+  animation: 0.25s 1 alternate ease-out modal_animation;
+}
+dialog:focus {
+  outline: none;
+}
+
+.modal-wrapper {
+  display: flex;
+  background-color: white;
+  width: 350px;
+  min-width: fit-content;
+
+  border-radius: 4px;
+  overflow: hidden;
+
+  box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.274);
+}
+.modal-content {
+  padding: 20px;
+  color: var(--grey-font);
+}
+
+.modal-title-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.modal-icon {
+  width: 30px;
+}
+#modal-title {
+  margin-left: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#modal-body {
+  margin: 10px 0;
+}
+.dialog-highlight {
+  width: 5px;
+  background-color: #e73b3b;
+}
+
+#modal-btn {
+  margin-top: 30px;
+  padding: 5px 8px;
+  border: solid var(--grey-font) 1px;
+  border-radius: 500px;
+
+  width: fit-content;
+}
+#modal-btn:hover {
+  cursor: pointer;
+}
+
+@keyframes modal_animation {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

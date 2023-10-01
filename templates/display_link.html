@@ -59,6 +59,9 @@
         class="copy-icon"
         src="{{ url_for('static', filename='images/copy_icon.svg') }}"
       />
+      <dialog id="modal">
+        <div id="pop-up-text" class="pop-up-wrapper">Copied to Clipboard!</div>
+      </dialog>
     </div>
 
     <div class="original-url">Original URL: {{ original_url }}</div>

@@ -1,12 +1,24 @@
-const copyToClipBoard = (text) => {
+const displayPopUp = (message) => {
+    const modal = document.getElementById("modal");
+
+    const popUpText = document.getElementById("pop-up-text");
+    popUpText.innerText = message;
+    modal.show();
+
+    setTimeout(() => {
+        modal.close();
+    }, 1000);
+};
+
+const copyToClipBoard = () => {
     try {
-        navigator.clipboard.writeText(text);
-        alert("Copied Clipboard");
+        const linkDisplay = document.getElementById("link");
+        navigator.clipboard.writeText(linkDisplay.innerText);
+        displayPopUp("Copied Clipboard");
     } catch (e) {
-        alert("Error Copying To Clipboard");
+        displayPopUp("Error Copying To Clipboard");
     }
 };
 
-const linkDisplay = document.getElementById("link");
-const copyBtn = document.getElementById("copyBtn");
-copyBtn.addEventListener("click", () => copyToClipBoard(linkDisplay.innerText));
+const copybtn = document.getElementById("short-link-wrapper");
+copybtn.addEventListener("click", copyToClipBoard);

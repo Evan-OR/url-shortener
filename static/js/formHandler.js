@@ -1,5 +1,34 @@
+// Form Refs
 const form = document.getElementById("searchForm");
 const searchBar = document.getElementById("search");
+
+// Modal Refs
+const modal = document.getElementById("modal");
+const closeModalBtn = document.getElementById("modal-btn");
+
+modal.addEventListener("click", (e) => {
+    const dialogDimensions = modal.getBoundingClientRect();
+    if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+    ) {
+        modal.close();
+    }
+});
+closeModalBtn.addEventListener("click", () => modal.close());
+
+const displayModal = (title, message) => {
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalbody = document.getElementById("modal-body");
+
+    modalTitle.innerText = title;
+    modalbody.innerText = message;
+
+    modal.showModal();
+};
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -8,10 +37,14 @@ form.addEventListener("submit", async (e) => {
     url = searchBar.value;
 
     if (!hasHTTP(url)) {
-        alert("URL must start with https:// or http://");
+        displayModal("Invlid URL", "URL needs to have http:// or https://");
+        return;
     }
     if (!isValidURL(url)) {
-        console.error("Invlid URL");
+        displayModal(
+            "Invlid URL",
+            "Try using a valid URL e.g. https://google.com"
+        );
         return;
     }
 
@@ -23,17 +56,25 @@ form.addEventListener("submit", async (e) => {
         body: JSON.stringify({ url: url }),
     };
 
-    const req = await fetch(`/create-link`, options);
+    try {
+        const req = await fetch(`/create-link`, options);
+        if (!req.ok) {
+            displayModal(
+                "Error Creating Link",
+                "We ran into an issue creating your link :("
+            );
+            return;
+        }
+        const res = await req.json();
 
-    if (!req.ok) {
-        alert("Error Creating Link");
-        return;
+        document.getElementById("res").innerText = JSON.stringify(res);
+        window.location.replace(res.shortened);
+    } catch (e) {
+        displayModal(
+            "Error Creating Link",
+            "We ran into an issue creating your link :("
+        );
     }
-
-    const res = await req.json();
-
-    document.getElementById("res").innerText = JSON.stringify(res);
-    window.location.replace(res.shortened);
 });
 
 const isValidURL = (s) => {

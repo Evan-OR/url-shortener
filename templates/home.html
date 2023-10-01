@@ -12,35 +12,50 @@
       rel="stylesheet"
       href="{{ url_for('static',filename='styles/styles.css') }}"
     />
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
+
     <style>
       @font-face {
         font-family: "Sunny Spells";
         src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}")
           format("truetype");
+        font-display: swap;
       }
       .cool-font {
         font-family: "Sunny Spells", sans-serif;
         font-weight: 100;
       }
     </style>
-    <!-- Icons -->
 
     <title>Lil Link</title>
   </head>
   <body>
+    <dialog id="modal" autofocus>
+      <div class="modal-wrapper">
+        <div class="dialog-highlight"></div>
+        <div class="modal-content">
+          <div class="modal-title-wrapper">
+            <img
+              class="modal-icon"
+              draggable="false"
+              alt="Error"
+              src="{{ url_for('static', filename='images/error.svg') }}"
+            />
+            <div id="modal-title">Action Failed</div>
+          </div>
+          <div id="modal-body">URL needs to have http:// or https://</div>
+          <div id="modal-btn">Close</div>
+        </div>
+      </div>
+    </dialog>
+
     <div class="hero-background">
       <div class="hero-title">
         <h1 class="title cool-font">Lil Link</h1>
         <h3>Shorten your URL's</h3>
       </div>
       <img
+        draggable="false"
+        alt="Hero Background"
         class="bg"
         src="{{ url_for('static', filename='images/Hero.svg') }}"
       />
@@ -65,8 +80,10 @@
       <!-- Info 1 -->
       <div class="info-wrapper">
         <img
+          draggable="false"
           class="info-icon"
           title="Copy To Clipboard"
+          alt="Shorten Icon"
           src="{{ url_for('static', filename='images/little_icon.svg') }}"
         />
         <div class="info-title cool-font">Shorten Your Links</div>
@@ -80,8 +97,10 @@
       <!-- Info 2 -->
       <div class="info-wrapper">
         <img
+          draggable="false"
           class="info-icon"
           title="Copy To Clipboard"
+          alt="QR Code Icon"
           src="{{ url_for('static', filename='images/qr_icon.svg') }}"
         />
         <div class="info-title cool-font">Generate QR Codes</div>

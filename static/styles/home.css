@@ -14,6 +14,10 @@ input[type="text"]:focus {
   outline: none;
 }
 
+input::placeholder {
+  user-select: none;
+}
+
 #searchForm {
   max-width: 600px;
   margin: 40px;
@@ -33,6 +37,7 @@ input[type="text"]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 
 .searchBtn:hover {
@@ -59,6 +64,7 @@ input[type="text"]:focus {
   position: absolute;
   width: 100%;
   z-index: 1;
+  user-select: none;
 }
 .hero-title {
   z-index: 2;
@@ -73,11 +79,13 @@ input[type="text"]:focus {
 }
 .hero-title > h3 {
   margin: 0;
+  user-select: none;
 }
 
 .title {
   font-size: 8rem;
   margin: 0;
+  user-select: none;
 }
 
 .info-section {
@@ -98,6 +106,7 @@ input[type="text"]:focus {
   height: 90px;
   fill: #ffa6a6;
   color: #ffa6a6;
+  user-select: none;
 }
 .info-title {
   color: var(--primary);
