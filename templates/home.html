@@ -29,6 +29,25 @@
     <title>Lil Link</title>
   </head>
   <body>
+    <dialog id="modal" autofocus>
+      <div class="modal-wrapper">
+        <div class="dialog-highlight"></div>
+        <div class="modal-content">
+          <div class="modal-title-wrapper">
+            <img
+              class="modal-icon"
+              draggable="false"
+              alt="Error"
+              src="{{ url_for('static', filename='images/error.svg') }}"
+            />
+            <div id="modal-title">Action Failed</div>
+          </div>
+          <div id="modal-body">URL needs to have http:// or https://</div>
+          <div id="modal-btn">Close</div>
+        </div>
+      </div>
+    </dialog>
+
     <div class="hero-background">
       <div class="hero-title">
         <h1 class="title cool-font">Lil Link</h1>
