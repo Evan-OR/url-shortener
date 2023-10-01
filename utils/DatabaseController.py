@@ -94,7 +94,7 @@ class DatabaseController():
         connection.close()
 
         if result:
-            return True, result
+            return True, result.get("shortened_url")
         else:
             return False, ""
         

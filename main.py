@@ -28,7 +28,7 @@ def create_link():
         
         # Get root URL
         server_url = request.url_root
-        res["shortened"] = f"{server_url}/display/{res['shortened']}"
+        res["shortened"] = f"{server_url}display/{res.get('shortened')}"
 
         return jsonify(res), 200
     
