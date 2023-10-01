@@ -12,25 +12,19 @@
       rel="stylesheet"
       href="{{ url_for('static',filename='styles/styles.css') }}"
     />
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
+
     <style>
       @font-face {
         font-family: "Sunny Spells";
         src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}")
           format("truetype");
+        font-display: swap;
       }
       .cool-font {
         font-family: "Sunny Spells", sans-serif;
         font-weight: 100;
       }
     </style>
-    <!-- Icons -->
 
     <title>Lil Link</title>
   </head>
@@ -41,6 +35,8 @@
         <h3>Shorten your URL's</h3>
       </div>
       <img
+        draggable="false"
+        alt="Hero Background"
         class="bg"
         src="{{ url_for('static', filename='images/Hero.svg') }}"
       />
@@ -65,8 +61,10 @@
       <!-- Info 1 -->
       <div class="info-wrapper">
         <img
+          draggable="false"
           class="info-icon"
           title="Copy To Clipboard"
+          alt="Shorten Icon"
           src="{{ url_for('static', filename='images/little_icon.svg') }}"
         />
         <div class="info-title cool-font">Shorten Your Links</div>
@@ -80,8 +78,10 @@
       <!-- Info 2 -->
       <div class="info-wrapper">
         <img
+          draggable="false"
           class="info-icon"
           title="Copy To Clipboard"
+          alt="QR Code Icon"
           src="{{ url_for('static', filename='images/qr_icon.svg') }}"
         />
         <div class="info-title cool-font">Generate QR Codes</div>
