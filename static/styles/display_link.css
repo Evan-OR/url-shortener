@@ -8,6 +8,9 @@
   border: 2px var(--primary) dashed;
   border-radius: 4px;
 }
+.short-link-display-wrapper:hover {
+  cursor: pointer;
+}
 
 .short-link {
   color: var(--grey-font);
@@ -17,9 +20,6 @@
   width: 30px;
   margin-left: 20px;
   color: var(--primary);
-}
-.copy-icon:hover {
-  cursor: pointer;
 }
 
 .original-url {
@@ -46,4 +46,17 @@
 
 .btn-margin {
   margin: 15px;
+}
+
+.pop-up-wrapper {
+  background-color: white;
+  padding: 10px;
+  border: solid 2px var(--grey-font);
+  border-radius: 4px;
+  color: var(--grey-font);
+
+  font-size: 1.6rem;
+  /* font-weight: bold; */
+
+  box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.274);
 }
