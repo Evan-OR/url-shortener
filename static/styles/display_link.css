@@ -23,7 +23,10 @@
 }
 
 .original-url {
-  margin: 5px 0;
+  margin: 5px 15px;
+  width: 100%;
+  text-align: center;
+  word-wrap: break-word;
 }
 
 .qr-wrapper {
