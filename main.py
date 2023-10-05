@@ -1,3 +1,4 @@
+import argparse
 from flask import Flask, render_template, jsonify, request
 from utils.DatabaseController import DatabaseController
 from utils.qr_code_generation import generate_encoded_qr
@@ -61,4 +62,11 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    parser = argparse.ArgumentParser(description="Runs url shortener website")
+    parser.add_argument("--prod", action="store_true", help="Disables debug mode.")
+
+    args = parser.parse_args()
+    if args.prod:
+        app.run(debug=False)
+    else:
+        app.run(debug=True)
