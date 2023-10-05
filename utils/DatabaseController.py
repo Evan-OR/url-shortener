@@ -20,10 +20,7 @@ class DatabaseController():
         # Load the .env file
         load_dotenv(env_path)
 
-        host = os.getenv('HOST')
-        user = os.getenv('USER')
-        password = os.getenv('PASSWORD')
-        database = os.getenv('DATABASE')
+        host, user, password, database = self._get_database_info()
 
         try:
             self.connection_pool = mysql.connector.pooling.MySQLConnectionPool(
@@ -129,3 +126,12 @@ class DatabaseController():
         finally:
             cursor.close()
             connection.close()
+
+    def _get_database_info(self):
+        # Try get variables from .env file first then try get details from environment.
+        host = os.getenv('HOST', os.environ.get('HOST'))
+        user = os.getenv('USER', os.environ.get('USER'))
+        password = os.getenv('PASSWORD', os.environ.get('PASSWORD'))
+        database = os.getenv('DATABASE', os.environ.get('DATABASE'))
+
+        return host, user, password, database
