@@ -7,4 +7,4 @@ def get_base_url(request:Request):
     if env_type == "DEBUG":
         return request.root_url
     else:
-        return "www.lillink.net/"
+        return "https://www.lillink.net/"
