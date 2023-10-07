@@ -1,7 +1,8 @@
-import argparse
-from flask import Flask, render_template, jsonify, request
+import os
+from flask import Flask, render_template, jsonify, redirect, request
 from utils.DatabaseController import DatabaseController
 from utils.qr_code_generation import generate_encoded_qr
+from utils.utils import get_base_url
 
 # Flask Init
 app = Flask(__name__)
@@ -17,7 +18,7 @@ def redirect(link):
     try:
         res = dc.get_original_from_shortened(link)
         return  render_template('url.html', original_url=res.get('original_url'))
-    except:
+    except Exception as e:
         return  render_template('404.html'), 404
 
 @app.route("/create-link", methods=['POST'])
@@ -28,9 +29,9 @@ def create_link():
         res = dc.shorten_url(url)
         
         # Get root URL
-        server_url = request.url_root
+        server_url = get_base_url(request)
         res["shortened"] = f"{server_url}display/{res.get('shortened')}"
-
+        print(res.get("shortened"))
         return jsonify(res), 200
     
     except ValueError as e:
@@ -47,14 +48,13 @@ def display_link(code):
         original_url = res.get('original_url')
         shortened_url = res.get('shortened_url')
 
-        full_shortened_url = request.url_root + shortened_url
+        full_shortened_url = get_base_url(request) + shortened_url
 
         encoded_image = generate_encoded_qr(original_url)
 
         return render_template('display_link.html', original_url=original_url, shortened_url=full_shortened_url, encoded_image=encoded_image), 200
  
     except Exception as e:
-        print(e)
         return render_template('404.html'), 404
 
 @app.errorhandler(404)
@@ -62,11 +62,9 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Runs url shortener website")
-    parser.add_argument("--prod", action="store_true", help="Disables debug mode.")
+    env_type = os.getenv('ENV_TYPE', os.environ.get('ENV_TYPE'))
 
-    args = parser.parse_args()
-    if args.prod:
-        app.run(debug=False)
+    if env_type == "DEBUG":
+        app.run(debug=True)    
     else:
-        app.run(debug=True)
+        app.run(debug=False)
