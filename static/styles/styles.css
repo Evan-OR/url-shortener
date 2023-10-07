@@ -109,6 +109,30 @@ dialog:focus {
   cursor: pointer;
 }
 
+footer {
+  width: 100%;
+  background-color: var(--grey-font);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  opacity: 0.9;
+
+  margin-top: auto;
+}
+.footer-icon {
+  height: 25px;
+  width: 25px;
+
+  margin: 0 10px;
+}
+.footer-icon > img {
+  width: 100%;
+}
+
 @keyframes modal_animation {
   from {
     opacity: 0;

@@ -52,6 +52,19 @@
     <a href="/" class="btn-primary cool-font btn-margin">
       <div>Back Home</div>
     </a>
+
+    <footer>
+      <p style="margin: 7px 0">&copy; Evan O'Rourke</p>
+      <a href="https://evanorourke.com/" class="footer-icon" target="_blank"
+        ><img draggable="false" title="Portfolio" alt="portfolio icon" src="{{ url_for('static', filename='images/portfolio.svg') }}"
+      /></a>
+      <a href="https://www.linkedin.com/in/evan-orourke/" class="footer-icon" style="width: 24px" target="_blank"
+        ><img draggable="false" title="Linkedin" alt="linkedin icon" src="{{ url_for('static', filename='images/linkedin.svg') }}"
+      /></a>
+      <a href="https://github.com/Evan-OR" class="footer-icon" target="_blank"
+        ><img draggable="false" title="Github" alt="github icon" src="{{ url_for('static', filename='images/github.svg') }}"
+      /></a>
+    </footer>
   </body>
 
   <script defer src="{{ url_for('static',filename='js/copyToClipboard.js')}}"></script>
