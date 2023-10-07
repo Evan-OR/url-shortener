@@ -31,7 +31,6 @@ def create_link():
         # Get root URL
         server_url = get_base_url(request)
         res["shortened"] = f"{server_url}display/{res.get('shortened')}"
-        print(res.get("shortened"))
         return jsonify(res), 200
     
     except ValueError as e:
