@@ -47,7 +47,7 @@ def display_link(code):
         original_url = res.get('original_url')
         shortened_url = res.get('shortened_url')
 
-        full_shortened_url = (get_base_url(request) + shortened_url)[8:]
+        full_shortened_url = (get_base_url(request, shorten=True) + shortened_url)
 
         encoded_image = generate_encoded_qr(original_url)
 

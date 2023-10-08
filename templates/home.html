@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSS -->
+    <link rel="icon" href="{{ url_for('static', filename='images/fav.svg') }}" type="image/svg+xml" />
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/home.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" />
-
     <style>
       @font-face {
         font-family: "Sunny Spells";
@@ -54,34 +53,24 @@
     </form>
 
     <div class="info-section">
-      <!-- Info 1 -->
       <div class="info-wrapper">
         <img draggable="false" class="info-icon" title="Copy To Clipboard" alt="Shorten Icon" src="{{ url_for('static', filename='images/little_icon.svg') }}" />
         <div class="info-title cool-font">Shorten Your Links</div>
         <div class="info-body">Our link shortening service simplifies the way you share web links. Say goodbye to long, cumbersome URLs and hello to concise, easy-to-share links.</div>
       </div>
 
-      <!-- Info 2 -->
       <div class="info-wrapper">
         <img draggable="false" class="info-icon" title="Copy To Clipboard" alt="QR Code Icon" src="{{ url_for('static', filename='images/qr_icon.svg') }}" />
         <div class="info-title cool-font">Generate QR Codes</div>
-        <div class="info-body">
-          Unlock the power of QR codes with our user-friendly generator. Easily convert your URLs into scannable QR codes, perfect for adding to posters, business cards, and digital displays.
-        </div>
+        <div class="info-body">Unlock the power of QR codes with our user-friendly generator. Easily convert your URLs into scannable QR codes, perfect for adding to posters, business cards, and digital displays.</div>
       </div>
     </div>
 
     <footer>
       <p style="margin: 7px 0">&copy; Evan O'Rourke</p>
-      <a href="https://evanorourke.com/" class="footer-icon" target="_blank"
-        ><img draggable="false" title="Portfolio" alt="portfolio icon" src="{{ url_for('static', filename='images/portfolio.svg') }}"
-      /></a>
-      <a href="https://www.linkedin.com/in/evan-orourke/" class="footer-icon" style="width: 24px" target="_blank"
-        ><img draggable="false" title="Linkedin" alt="linkedin icon" src="{{ url_for('static', filename='images/linkedin.svg') }}"
-      /></a>
-      <a href="https://github.com/Evan-OR" class="footer-icon" target="_blank"
-        ><img draggable="false" title="Github" alt="github icon" src="{{ url_for('static', filename='images/github.svg') }}"
-      /></a>
+      <a href="https://evanorourke.com/" class="footer-icon" target="_blank"><img draggable="false" title="Portfolio" alt="portfolio icon" src="{{ url_for('static', filename='images/portfolio.svg') }}" /></a>
+      <a href="https://www.linkedin.com/in/evan-orourke/" class="footer-icon" style="width: 24px" target="_blank"><img draggable="false" title="Linkedin" alt="linkedin icon" src="{{ url_for('static', filename='images/linkedin.svg') }}" /></a>
+      <a href="https://github.com/Evan-OR" class="footer-icon" target="_blank"><img draggable="false" title="Github" alt="github icon" src="{{ url_for('static', filename='images/github.svg') }}" /></a>
     </footer>
   </body>
 
