@@ -3,17 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="{{ url_for('static', filename='images/fav.svg') }}" type="image/svg+xml" />
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/home.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/display_link.css') }}" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/fav.svg') }}"
+      type="image/svg+xml"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='styles/home.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='styles/styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='styles/display_link.css') }}"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <style>
       @font-face {
         font-family: "Sunny Spells";
-        src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}") format("truetype");
+        src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}")
+          format("truetype");
       }
       .cool-font {
         font-family: "Sunny Spells", sans-serif;
@@ -29,12 +46,22 @@
         <h1 class="title cool-font">Lil Link</h1>
         <h3>Shorten your URL's</h3>
       </div>
-      <img draggable="false" alt="Hero Background" class="bg" src="{{ url_for('static', filename='images/hero_bg.svg') }}" />
+      <img
+        draggable="false"
+        alt="Hero Background"
+        class="bg"
+        src="{{ url_for('static', filename='images/hero_bg.svg') }}"
+      />
     </div>
 
     <div id="short-link-wrapper" class="short-link-display-wrapper">
       <div id="link" class="short-link cool-font">{{ shortened_url }}</div>
-      <img id="copyBtn" title="Copy To Clipboard" class="copy-icon" src="{{ url_for('static', filename='images/copy_icon.svg') }}" />
+      <img
+        id="copyBtn"
+        title="Copy To Clipboard"
+        class="copy-icon"
+        src="{{ url_for('static', filename='images/copy_icon.svg') }}"
+      />
       <dialog id="modal">
         <div id="pop-up-text" class="pop-up-wrapper">Copied to Clipboard!</div>
       </dialog>
@@ -43,7 +70,12 @@
     <div class="original-url">Original URL: {{ original_url }}</div>
 
     <div id="qr-wrapper" class="qr-wrapper">
-      <img id="qr" class="qr" src="data:image/png;base64,{{ encoded_image }}" alt="QR Code" />
+      <img
+        id="qr"
+        class="qr"
+        src="data:image/png;base64,{{ encoded_image }}"
+        alt="QR Code"
+      />
     </div>
 
     <a href="/" class="btn-primary cool-font btn-margin">
@@ -52,11 +84,36 @@
 
     <footer>
       <p style="margin: 7px 0">&copy; Evan O'Rourke</p>
-      <a href="https://evanorourke.com/" class="footer-icon" target="_blank"><img draggable="false" title="Portfolio" alt="portfolio icon" src="{{ url_for('static', filename='images/portfolio.svg') }}" /></a>
-      <a href="https://www.linkedin.com/in/evan-orourke/" class="footer-icon" style="width: 24px" target="_blank"><img draggable="false" title="Linkedin" alt="linkedin icon" src="{{ url_for('static', filename='images/linkedin.svg') }}" /></a>
-      <a href="https://github.com/Evan-OR" class="footer-icon" target="_blank"><img draggable="false" title="Github" alt="github icon" src="{{ url_for('static', filename='images/github.svg') }}" /></a>
+      <a href="https://evanorourke.com/" class="footer-icon" target="_blank"
+        ><img
+          draggable="false"
+          title="Portfolio"
+          alt="portfolio icon"
+          src="{{ url_for('static', filename='images/portfolio.svg') }}"
+      /></a>
+      <a
+        href="https://www.linkedin.com/in/evan-orourke/"
+        class="footer-icon"
+        style="width: 24px"
+        target="_blank"
+        ><img
+          draggable="false"
+          title="Linkedin"
+          alt="linkedin icon"
+          src="{{ url_for('static', filename='images/linkedin.svg') }}"
+      /></a>
+      <a href="https://github.com/Evan-OR" class="footer-icon" target="_blank"
+        ><img
+          draggable="false"
+          title="Github"
+          alt="github icon"
+          src="{{ url_for('static', filename='images/github.svg') }}"
+      /></a>
     </footer>
   </body>
 
-  <script defer src="{{ url_for('static',filename='js/copyToClipboard.js')}}"></script>
+  <script
+    defer
+    src="{{ url_for('static',filename='js/copyToClipboard.js')}}"
+  ></script>
 </html>
