@@ -10,6 +10,23 @@ from typing import Optional, Union, Any
 
 
 class DatabaseController():
+    """
+    A class for managing database operations related to URL shortening.
+
+    Attributes:
+        connection_pool (mysql.connector.pooling.MySQLConnectionPool): A connection pool for MySQL database.
+        
+    Methods:
+        get_original_from_shortened(url: str) -> list[dict[str, Any]]:
+            Retrieve the original URL associated with a shortened URL.
+
+        shorten_url(url: str) -> Union[None, dict]:
+            Shorten a URL and store it in the database, or return an existing shortened URL.
+
+    Note:
+        This class assumes that you have a MySQL database set up and configured with the necessary tables.
+
+    """
 
     def __init__(self) -> None:
         self._initialize()

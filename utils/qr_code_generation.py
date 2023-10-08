@@ -3,7 +3,16 @@ from io import BytesIO
 import qrcode
 
 def generate_encoded_qr(url:str):    
-    
+    """
+    Generate and encode a QR code image for a given URL.
+
+    Args:
+        url (str): The URL for which a QR code should be generated.
+
+    Returns:
+        str: The base64-encoded representation of the QR code image in PNG format.
+
+    """
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
