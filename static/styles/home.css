@@ -68,10 +68,8 @@ input::placeholder {
 .bg {
   position: absolute;
   width: 100%;
-  height: 100%;
   z-index: 1;
   user-select: none;
-  max-width: 1200px;
 }
 .hero-title {
   z-index: 2;
