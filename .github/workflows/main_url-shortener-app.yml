@@ -64,4 +64,4 @@ jobs:
         with:
           app-name: 'url-shortener-app'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D61B6CF778604A29AD3086282915D441 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6B78DDDD86F642D9A177AC9BFA951A8D }}
