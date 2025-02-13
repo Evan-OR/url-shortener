@@ -61,7 +61,7 @@ def display_link(code):
         shortened_url = res.get("code")
 
         server_url = get_base_url(request)
-        full_shortened_url = f"{server_url}display/{shortened_url}"
+        full_shortened_url = f"{server_url}{shortened_url}"
         parsed_url = urlparse(full_shortened_url)
         url_without_scheme = f"{parsed_url.netloc}{parsed_url.path}"
 
