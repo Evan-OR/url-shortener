@@ -16,7 +16,7 @@ def generate_encoded_qr(url:str):
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=2, 
+        box_size=5, 
         border=2
     )
     qr.add_data(url)
