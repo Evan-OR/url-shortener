@@ -3,33 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      href="{{ url_for('static', filename='images/fav.svg') }}"
-      type="image/svg+xml"
+    <title>Lil Link - Free & Fast URL Shortener</title>
+    <meta
+      name="description"
+      content="Shorten long URLs instantly with Lil Link. Create easy-to-share links, generate QR codes, and enhance your online sharing experience."
     />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles/home.css') }}"
+    <meta
+      name="keywords"
+      content="URL shortener, free link shortener, shorten URLs, QR code generator, link management, custom short links"
     />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles/styles.css') }}"
-    />
+    <meta name="author" content="Evan O'Rourke" />
+    <link rel="canonical" href="https://lillink.net/" />
+
+    <link rel="icon" href="{{ url_for('static', filename='images/fav.svg') }}" type="image/svg+xml" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/home.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" />
     <style>
       @font-face {
-        font-family: "Sunny Spells";
-        src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}")
-          format("truetype");
+        font-family: 'Sunny Spells';
+        src: url("{{ url_for('static', filename='fonts/Sunny Spells.ttf') }}") format('truetype');
         font-display: swap;
       }
       .cool-font {
-        font-family: "Sunny Spells", sans-serif;
+        font-family: 'Sunny Spells', sans-serif;
         font-weight: 100;
       }
     </style>
-
-    <title>Lil Link</title>
   </head>
   <body>
     <dialog id="modal" autofocus>
@@ -66,13 +65,7 @@
 
     <form id="searchForm">
       <div class="searchInputWrapper">
-        <input
-          id="search"
-          name="url"
-          type="text"
-          placeholder="www.YourLongURL.com"
-          autocomplete="off"
-        />
+        <input id="search" name="url" type="text" placeholder="www.YourLongURL.com" autocomplete="off" />
         <button class="searchBtn" type="submit">
           <div class="cool-font">Shorten</div>
         </button>
@@ -90,9 +83,8 @@
         />
         <div class="info-title cool-font">Shorten Your Links</div>
         <div class="info-body">
-          Our link shortening service simplifies the way you share web links.
-          Say goodbye to long, cumbersome URLs and hello to concise,
-          easy-to-share links.
+          Our link shortening service simplifies the way you share web links. Say goodbye to long, cumbersome URLs and
+          hello to concise, easy-to-share links.
         </div>
       </div>
 
@@ -106,9 +98,8 @@
         />
         <div class="info-title cool-font">Generate QR Codes</div>
         <div class="info-body">
-          Unlock the power of QR codes with our user-friendly generator. Easily
-          convert your URLs into scannable QR codes, perfect for adding to
-          posters, business cards, and digital displays.
+          Unlock the power of QR codes with our user-friendly generator. Easily convert your URLs into scannable QR
+          codes, perfect for adding to posters, business cards, and digital displays.
         </div>
       </div>
     </div>
@@ -122,11 +113,7 @@
           alt="portfolio icon"
           src="{{ url_for('static', filename='images/portfolio.svg') }}"
       /></a>
-      <a
-        href="https://www.linkedin.com/in/evan-orourke/"
-        class="footer-icon"
-        style="width: 24px"
-        target="_blank"
+      <a href="https://www.linkedin.com/in/evan-orourke/" class="footer-icon" style="width: 24px" target="_blank"
         ><img
           draggable="false"
           title="Linkedin"
@@ -143,8 +130,5 @@
     </footer>
   </body>
 
-  <script
-    defer
-    src="{{ url_for('static',filename='js/formHandler.js')}}"
-  ></script>
+  <script defer src="{{ url_for('static',filename='js/formHandler.js')}}"></script>
 </html>
